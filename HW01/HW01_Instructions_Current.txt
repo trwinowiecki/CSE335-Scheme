@@ -1,0 +1,140 @@
+                               CSE 335 PROGRAMMING LANGUAGES
+                                - Fall 2016 Homework 01 -
+
+Guidelines:
+This file should be accompanied by three other source files:
+  hw01-answer-sheet.rkt
+  hw01-tests.rkt
+  test-infrastructure.rkt
+
+DUE:  Wed, Sep 21, 2016 at 11:55pm
+
+
+All of the above files will have to be in the same folder for the tests to work.
+
+The questions that require you to write code are accompanied by test cases. You can
+see in the description of the test cases for which problems they are written. To run the tests
+check the "hw01-tests.rkt" file for further instructions.
+
+The tests are written using the small library defined in "test-infrastructure.rkt".
+Check that file for further details about the testing infrastructure.
+--
+Submission guidelines:
+  - first, write your answers in the accompanying answer sheet file named "hw01-answer-sheet.rkt". 
+  - then, rename the answer sheet file to "hw01-yourlastname.rkt" (replace "yourlastname" with your real last name)
+  - upload/submit *only* the renamed answer sheet file.
+
+Possible penalties:
+  - 5% of the total points for not renaming the answer sheet
+  - up to 10% for submitting a file that does not compile (to compile, hit
+    the "Run" button from the DrRacket UI when your file is open). See the answer
+    sheet for further details.
+  - 25% penalty for submissions after Wed (Sep 21 @ 11:55pm) but before 
+    Friday (Sep 23 @ 11:55pm).
+================================================================================
+
+
+--
+In Racket/Scheme, all expressions are written between a pair of parentheses.
+Whenever the interpreter encounters an open parenthesis, e.g.:
+(+ 3 4)
+it will expect that the first element of the list to be a function (except when
+using the ' (quote) function); in Scheme operators are also functions (we will
+cover this in more detail next week).
+
+The implication of this uniform way of treating things is that mathematical
+expression have to be written in prefix notation (the operator comes first, the operands later) 
+as opposed to the infix notation we see in Java. But, this allows for addition
+to take an arbitrary number of operands:
+>(+ 1 2 3 4)
+10
+
+The ">" symbol is the prompt: the indication that the expression following it is evaluated
+in the interpreter.
+================================================================================
+1.
+================================================================================
+2.
+
+Describe in words how to translate an algebraic formula into Scheme's notation.
+Be sure to handle the general case.
+================================================================================
+3.
+================================================================================
+4.
+
+================================================================================
+5.
+================================================================================
+6.
+================================================================================
+7.
+================================================================================
+
+We will cover list data type in more details soon.
+but let's first mention it before hand:
+
+Scheme offers a "one size fits all collection", list. It is a homogeneous collection,
+i.e. it can store any number of types of values at the same time. Very important
+for you to remember is that lists are immutable; all operations on lists (car, cdr
+cons) do not modify the original list, but rather construct a new one. We will
+study the implications this fact has on our programming style in later homework.
+For now, we will focus only on constructing lists.
+
+================================================================================
+8.
+================================================================================
+9.
+================================================================================
+10.
+
+What can you do with a string in Scheme that you can't do with a symbol?  
+Why is there a distinction between strings and symbols in Scheme?   
+(Hint: look at the Revised Report on Scheme, the url of which is given
+in sep-9 course slides , to see the operations that Scheme defines for these
+types.)
+================================================================================
+11.
+================================================================================
+12. 
+================================================================================
+13.
+================================================================================
+14.
+================================================================================
+15.
+================================================================================
+16.
+
+A fast and useful debugging tool is printing out relevant information. Two
+functions you will encounter during this course are:
+
+>(display 42)
+42
+
+>(print 42)
+42
+
+The semantic difference between the two is not relevant for this course. You are,
+however, encouraged to look into this matter by yourself.
+
+To print a newline evaluate the function:
+>(newline)
+
+Because the branches of an "if" instruction can contain only one instruction each,
+in order to print any relevant information from any branch and still do computation
+you can use the "begin" function:
+
+>(if true 
+      (begin (print "computing 42") (newline) (+ 12 30))
+      (print "dead code")           
+   )
+
+A begin function can contain 0 or more instructions. The value of the begin
+function is *always* the value of the last instruction. As you can see from
+the above example, the first two instructions produce side effects (printing)
+while the last instruction computes a value which is then returned as the 
+value of the "begin" instruction and then as the value of the "if" instruction.
+
+You do not have to do anything for this problem, just experiment a bit.
+================================================================================
